@@ -3,17 +3,19 @@ package br.senai.sp.jandira.gui;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-/*import java.awt.event.ActionEvent;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;*/
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 import br.senai.sp.jandira.Tabuada;
 
@@ -23,8 +25,12 @@ public class FrameTabuada {
 	public int largura, altura;
 	public Color corDoBotao;
 	public Color corDoTextoDoBotao;
-	public Font fonteDosLabels;
-	public Color letras;
+	public Font fonteDoTitulo;
+	public Color corLetras;
+	public Font fonteDoSubTitulo;
+	public Color corDois;
+	public Color corBasica;
+	public LineBorder borda;
 
 	// criar janela
 	public void criarTela() {
@@ -45,138 +51,132 @@ public class FrameTabuada {
 
 		// tabuada 1.0
 		JLabel labelTitulo = new JLabel();
-		labelTitulo.setText("TABUADA 1.0");
+		labelTitulo.setText("Tabuada 1.0");
 		labelTitulo.setBounds(100, 10, 130, 50);
 		labelTitulo.setForeground(new Color(255, 0, 0));
-		labelTitulo.setFont(fonteDosLabels);
+		labelTitulo.setFont(fonteDoTitulo);
 
 		// com a tabuada seus problemas acabaram
 		JLabel labelTexto = new JLabel();
-		labelTexto.setText("Com a tabuada 1.0 os seus problemas acabaram. Calcule a tabuada que desejar em segundos!");
-		labelTexto.setBounds(100, 40, 600, 30);
-		labelTexto.setForeground(letras);
+		labelTexto.setText("<html>Com a tabuada 1.0 os seus problemas acabaram. Calcule<br/>a tabuada que desejar em segundos!</html>");
+		labelTexto.setBounds(100, 40, 600, 40);
+		labelTexto.setForeground(corBasica);
 
 		// multiplicando
 		JLabel labelMultiplicando = new JLabel();
 		labelMultiplicando.setText("Multiplicando:");
-		labelMultiplicando.setBounds(100, 60, 600, 30);
-		labelMultiplicando.setForeground(letras);
-
+		labelMultiplicando.setBounds(100, 100, 100, 20);
+		labelMultiplicando.setForeground(corLetras);
+		labelMultiplicando.setFont(fonteDoSubTitulo);
 		// caixa multiplicando
 		JTextField textFieldMultiplicando = new JTextField();
-		textFieldMultiplicando.setBounds(100, 70, 300, 30);
+		textFieldMultiplicando.setBounds(250, 95, 180, 30);
+		textFieldMultiplicando.setBorder(borda);
 
 		// minimo multiplicador
 		JLabel labelMinMulti = new JLabel();
-		labelMinMulti.setText("Mínimo Multiplicador");
-		labelMinMulti.setBounds(30, 110, 100, 30);
-		labelMinMulti.setForeground(letras);
-		labelMinMulti.setFont(fonteDosLabels);
-
+		labelMinMulti.setText("Mínimo Multiplicador:");
+		labelMinMulti.setBounds(47, 150, 300, 20);
+		labelMinMulti.setForeground(corLetras);
+		labelMinMulti.setFont(fonteDoSubTitulo);
 		// caixa minimo multiplicador
 		JTextField textFieldMinMulti = new JTextField();
-		textFieldMinMulti.setBounds(100, 70, 300, 30);
+		textFieldMinMulti.setBounds(250, 145, 180, 30);
+		textFieldMinMulti.setBorder(borda);
 
 		// máximo multiplicador
 		JLabel labelMaxMulti = new JLabel();
-		labelMaxMulti.setText("Máximo Multiplicador");
-		labelMaxMulti.setBounds(30, 110, 100, 30);
-		labelMaxMulti.setForeground(letras);
-		labelMaxMulti.setFont(fonteDosLabels);
-
+		labelMaxMulti.setText("Máximo Multiplicador:");
+		labelMaxMulti.setBounds(47, 200, 300, 20);
+		labelMaxMulti.setForeground(corLetras);
+		labelMaxMulti.setFont(fonteDoSubTitulo);
 		// caixa máximo multiplicador
 		JTextField textFieldMaxMulti = new JTextField();
-		textFieldMaxMulti.setBounds(100, 70, 300, 30);
+		textFieldMaxMulti.setBounds(250, 195, 180, 30);
+		textFieldMaxMulti.setBorder(borda);
 
 		// botao calcular
 		JButton buttonCalcular = new JButton();
 		buttonCalcular.setText("Calcular");
-		buttonCalcular.setBounds(400, 280, 150, 30);
+		buttonCalcular.setBounds(47, 250, 220, 40);
 		buttonCalcular.setForeground(corDoTextoDoBotao);
 		buttonCalcular.setBackground(corDoBotao);
+		buttonCalcular.setBorder(borda);
 
 		// botao limpar
 		JButton buttonLimpar = new JButton();
 		buttonLimpar.setText("Limpar");
-		buttonLimpar.setBounds(400, 280, 150, 30);
+		buttonLimpar.setBounds(280, 250, 150, 40);
 		buttonLimpar.setForeground(corDoTextoDoBotao);
-		buttonLimpar.setBackground(corDoBotao);
+		buttonLimpar.setBackground(corDois);
+		buttonLimpar.setBorder(borda);
 
 		// resultado
 		JLabel labelResultado = new JLabel();
 		labelResultado.setText("Resultado:");
-		labelResultado.setBounds(30, 400, 300, 30);
-		labelResultado.setForeground(letras);
-
+		labelResultado.setForeground(corLetras);
+		labelResultado.setFont(fonteDoSubTitulo);
+		labelResultado.setBounds(47, 300, 100, 30);
 		// caixa resultado
-		/*
-		 *JList<E> labelCursor = new JLabel();
-		 * labelCursor.setText("Seu status IMC é:"); labelCursor.setBounds(30, 430, 300,
-		 * 30); labelCursor.setForeground(letras);
-		 */
+		JList lista = new JList();
+		JScrollPane scroll = new JScrollPane(lista);
+
+		scroll.setBounds(47, 330, 400, 200);
+		scroll.setBorder(borda);
+		scroll.setBackground(corDois);
 
 		// eventos
-		/*
-		 * buttonCalcular.addActionListener(new ActionListener() {
-		 * 
-		 * @Override public void actionPerformed(ActionEvent e) { Tabuada tabuada = new
-		 * Tabuada(); tabuada.multiplicando = textFieldMultiplicando.getText();
-		 * tabuada.minimoMultiplicador = (int)
-		 * Double.parseDouble(textFieldMínMulti.getText()); tabuada.maximoMultiplicador
-		 * = Double.parseDouble(textFieldMaxMulti.getText());
-		 * 
-		 * labelResultado.setText(tabuada.nome + ", seu Imc é " + tabuada.getImc());
-		 * labelStatus.setText("status IMC:  " + tabuada.getStatus());
-		 * 
-		 * } }); textFieldMultiplicando.addMouseListener(new MouseListener() {
-		 * 
-		 * @Override public void mouseReleased(MouseEvent e) { // TODO Auto-generated
-		 * method stub
-		 * 
-		 * }
-		 * 
-		 * @Override public void mousePressed(MouseEvent e) { // TODO Auto-generated
-		 * method stub
-		 * 
-		 * }
-		 * 
-		 * @Override public void mouseExited(MouseEvent e) { // TODO Auto-generated
-		 * method stub
-		 * 
-		 * }
-		 * 
-		 * @Override public void mouseEntered(MouseEvent e) { // TODO Auto-generated
-		 * method stub
-		 * 
-		 * }
-		 * 
-		 * @Override public void mouseClicked(MouseEvent e) {
-		 * JOptionPane.showMessageDialog(null, "nao vai digitar nada");
-		 * 
-		 * } });
-		 */
+		buttonCalcular.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				Tabuada tabuada = new Tabuada();
+				tabuada.multiplicando = Integer.parseInt(textFieldMultiplicando.getText());
+				tabuada.minimoMultiplicador = Integer.parseInt(textFieldMinMulti.getText());
+				tabuada.maximoMultiplicador = Integer.parseInt(textFieldMaxMulti.getText());
+
+				String[] resultado = tabuada.getTabuada();
+				System.out.println(resultado[0]);
+				lista.setListData(resultado);
+			}
+		});
+		
+		buttonLimpar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				textFieldMultiplicando.setText("");
+				textFieldMinMulti.setText("");
+				textFieldMaxMulti.setText("");
+			}
+		});
+		
+		
 		// add componentes ao painel (container)
 		painel.add(labelTitulo);
-		
+
 		painel.add(labelTexto);
-		
+
 		painel.add(labelMultiplicando);
 		painel.add(textFieldMultiplicando);
-		
+
 		painel.add(labelMinMulti);
 		painel.add(textFieldMinMulti);
-		
+
 		painel.add(labelMaxMulti);
 		painel.add(textFieldMaxMulti);
-		
+
 		painel.add(labelMaxMulti);
 		painel.add(textFieldMaxMulti);
-		
+
 		painel.add(buttonCalcular);
 		painel.add(buttonLimpar);
-		
+
 		painel.add(labelResultado);
+		painel.add(scroll);
+		
 		tela.setVisible(true);
 
 	}

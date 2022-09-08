@@ -2,7 +2,7 @@ package br.senai.sp.jandira;
 
 public class Tabuada {
 
-	public String multiplicando;
+	public int multiplicando;
 	public int minimoMultiplicador;
 	public int maximoMultiplicador;
 	
