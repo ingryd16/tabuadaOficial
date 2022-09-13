@@ -5,6 +5,8 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -16,9 +18,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
+import br.senai.sp.jandira.JtextFieldSomenteNumeros;
 import br.senai.sp.jandira.Tabuada;
 
+@SuppressWarnings("unused")
 public class FrameTabuada {
 	public Color corDeFundoDaTela;
 	public String titulo;
@@ -69,7 +76,7 @@ public class FrameTabuada {
 		labelMultiplicando.setForeground(corLetras);
 		labelMultiplicando.setFont(fonteDoSubTitulo);
 		// caixa multiplicando
-		JTextField textFieldMultiplicando = new JTextField();
+		JTextField textFieldMultiplicando = new JtextFieldSomenteNumeros();
 		textFieldMultiplicando.setBounds(250, 95, 180, 30);
 		textFieldMultiplicando.setBorder(borda);
 
@@ -80,7 +87,7 @@ public class FrameTabuada {
 		labelMinMulti.setForeground(corLetras);
 		labelMinMulti.setFont(fonteDoSubTitulo);
 		// caixa minimo multiplicador
-		JTextField textFieldMinMulti = new JTextField();
+		JTextField textFieldMinMulti = new JtextFieldSomenteNumeros();
 		textFieldMinMulti.setBounds(250, 145, 180, 30);
 		textFieldMinMulti.setBorder(borda);
 
@@ -91,7 +98,7 @@ public class FrameTabuada {
 		labelMaxMulti.setForeground(corLetras);
 		labelMaxMulti.setFont(fonteDoSubTitulo);
 		// caixa máximo multiplicador
-		JTextField textFieldMaxMulti = new JTextField();
+		JTextField textFieldMaxMulti = new JtextFieldSomenteNumeros();
 		textFieldMaxMulti.setBounds(250, 195, 180, 30);
 		textFieldMaxMulti.setBorder(borda);
 
@@ -125,7 +132,9 @@ public class FrameTabuada {
 		scroll.setBorder(borda);
 		scroll.setBackground(corDois);
 
+		
 		// eventos
+		//* botao calcular
 		buttonCalcular.addActionListener(new ActionListener() {
 
 			@Override
@@ -142,6 +151,7 @@ public class FrameTabuada {
 			}
 		});
 		
+		//* botao limpar
 		buttonLimpar.addActionListener(new ActionListener() {
 
 			@Override
@@ -152,6 +162,8 @@ public class FrameTabuada {
 				textFieldMaxMulti.setText("");
 			}
 		});
+		
+		//* somente numeros
 		
 		
 		// add componentes ao painel (container)
