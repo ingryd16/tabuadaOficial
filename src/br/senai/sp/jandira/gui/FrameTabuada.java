@@ -39,6 +39,7 @@ public class FrameTabuada {
 	Icon IconeTabuada = new ImageIcon ("src\\br\\senai\\sp\\jandira\\imagem\\ofi.png");
 	public Color corfundao;
 	public Color corletra1;
+	public Color corletra2;
 
 	// criar janela
 	public void criarTela() {
@@ -84,6 +85,7 @@ public class FrameTabuada {
 		JTextField textFieldMultiplicando = new JtextFieldSomenteNumeros();
 		textFieldMultiplicando.setBounds(250, 95, 180, 30);
 		textFieldMultiplicando.setBorder(borda);
+		textFieldMultiplicando.setForeground(corletra1);
 		textFieldMultiplicando.addActionListener(new ActionListener() {
 			
 			@Override
@@ -103,6 +105,7 @@ public class FrameTabuada {
 		JTextField textFieldMinMulti = new JtextFieldSomenteNumeros();
 		textFieldMinMulti.setBounds(250, 145, 180, 30);
 		textFieldMinMulti.setBorder(borda);
+		textFieldMinMulti.setForeground(corletra1);
 		textFieldMinMulti.addActionListener(new ActionListener() {
 			
 			@Override
@@ -122,6 +125,7 @@ public class FrameTabuada {
 		JTextField textFieldMaxMulti = new JtextFieldSomenteNumeros();
 		textFieldMaxMulti.setBounds(250, 195, 180, 30);
 		textFieldMaxMulti.setBorder(borda);
+		textFieldMaxMulti.setForeground(corletra1);
 		textFieldMaxMulti.addActionListener(new ActionListener() {
 			
 			@Override
@@ -159,8 +163,8 @@ public class FrameTabuada {
 
 		scroll.setBounds(47, 330, 400, 200);
 		scroll.setBorder(borda);
-		scroll.setBackground(corDois);
 		lista.setBackground(corfundao);
+		lista.setForeground(corletra2);
 
 		
 		// eventos
