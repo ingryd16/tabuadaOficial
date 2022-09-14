@@ -5,11 +5,13 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.KeyListener;
+//import java.awt.event.MouseEvent;
+//import java.awt.event.MouseListener;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,14 +20,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.PlainDocument;
+//import javax.swing.text.AttributeSet;
+//import javax.swing.text.BadLocationException;
+//import javax.swing.text.PlainDocument;
 
 import br.senai.sp.jandira.JtextFieldSomenteNumeros;
 import br.senai.sp.jandira.Tabuada;
 
-@SuppressWarnings("unused")
 public class FrameTabuada {
 	public Color corDeFundoDaTela;
 	public String titulo;
@@ -38,6 +39,7 @@ public class FrameTabuada {
 	public Color corDois;
 	public Color corBasica;
 	public LineBorder borda;
+	Icon IconeTabuada = new ImageIcon ("src\\br\\senai\\sp\\jandira\\imagem\\ofi.png");
 
 	// criar janela
 	public void criarTela() {
@@ -55,6 +57,10 @@ public class FrameTabuada {
 		// x, y, larg, alt
 
 		// simbolo
+		JLabel labelIcone = new JLabel(IconeTabuada);
+		labelIcone.setBounds(10, 6, 30, 30);
+		labelIcone.setSize (100, 100);
+		labelIcone.setIcon(IconeTabuada);
 
 		// tabuada 1.0
 		JLabel labelTitulo = new JLabel();
@@ -140,14 +146,26 @@ public class FrameTabuada {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				Tabuada tabuada = new Tabuada();
-				tabuada.multiplicando = Integer.parseInt(textFieldMultiplicando.getText());
-				tabuada.minimoMultiplicador = Integer.parseInt(textFieldMinMulti.getText());
-				tabuada.maximoMultiplicador = Integer.parseInt(textFieldMaxMulti.getText());
+				if ((textFieldMultiplicando.getText().isEmpty()) || (textFieldMinMulti.getText().isEmpty())
+						|| (textFieldMaxMulti.getText().isEmpty())) {
+					
+					JOptionPane.showMessageDialog(null, "Confira os campos, eles são obrigatórios!!");
+				} else {
+					
+					Tabuada tabuada = new Tabuada();
+					tabuada.multiplicando = Integer.parseInt(textFieldMultiplicando.getText());
+					tabuada.minimoMultiplicador = Integer.parseInt(textFieldMinMulti.getText());
+					tabuada.maximoMultiplicador = Integer.parseInt(textFieldMaxMulti.getText());
 
-				String[] resultado = tabuada.getTabuada();
-				System.out.println(resultado[0]);
-				lista.setListData(resultado);
+					if (tabuada.maximoMultiplicador >= tabuada.minimoMultiplicador) {
+						String[] resultado = tabuada.getTabuada();
+						lista.setListData(resultado);
+					} else {
+						JOptionPane.showMessageDialog(null, "O máximo deve ser maior que o mínimo!!");
+					}
+					
+					
+				}
 			}
 		});
 		
@@ -160,11 +178,10 @@ public class FrameTabuada {
 				textFieldMultiplicando.setText("");
 				textFieldMinMulti.setText("");
 				textFieldMaxMulti.setText("");
+				String[] limparJList = { "" };
+				lista.setListData(limparJList);
 			}
 		});
-		
-		//* somente numeros
-		
 		
 		// add componentes ao painel (container)
 		painel.add(labelTitulo);
@@ -188,6 +205,8 @@ public class FrameTabuada {
 
 		painel.add(labelResultado);
 		painel.add(scroll);
+		
+		painel.add(labelIcone);
 		
 		tela.setVisible(true);
 
