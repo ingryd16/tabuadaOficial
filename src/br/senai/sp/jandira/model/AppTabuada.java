@@ -22,6 +22,7 @@ public class AppTabuada {
 		tela.corLetras = new Color(0);
 		tela.corBasica = new Color (128, 128, 128);
 		tela.borda = new LineBorder(Color.BLUE);
+		tela.corfundao = new Color(255, 242, 204);
 		tela.criarTela();
 	}
 }

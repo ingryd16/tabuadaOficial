@@ -20,9 +20,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-//import javax.swing.text.AttributeSet;
-//import javax.swing.text.BadLocationException;
-//import javax.swing.text.PlainDocument;
 
 import br.senai.sp.jandira.JtextFieldSomenteNumeros;
 import br.senai.sp.jandira.Tabuada;
@@ -40,6 +37,7 @@ public class FrameTabuada {
 	public Color corBasica;
 	public LineBorder borda;
 	Icon IconeTabuada = new ImageIcon ("src\\br\\senai\\sp\\jandira\\imagem\\ofi.png");
+	public Color corfundao;
 
 	// criar janela
 	public void criarTela() {
@@ -137,6 +135,7 @@ public class FrameTabuada {
 		scroll.setBounds(47, 330, 400, 200);
 		scroll.setBorder(borda);
 		scroll.setBackground(corDois);
+		lista.setBackground(corfundao);
 
 		
 		// eventos
