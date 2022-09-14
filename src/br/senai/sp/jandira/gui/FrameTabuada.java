@@ -38,6 +38,7 @@ public class FrameTabuada {
 	public LineBorder borda;
 	Icon IconeTabuada = new ImageIcon ("src\\br\\senai\\sp\\jandira\\imagem\\ofi.png");
 	public Color corfundao;
+	public Color corletra1;
 
 	// criar janela
 	public void criarTela() {
@@ -83,6 +84,14 @@ public class FrameTabuada {
 		JTextField textFieldMultiplicando = new JtextFieldSomenteNumeros();
 		textFieldMultiplicando.setBounds(250, 95, 180, 30);
 		textFieldMultiplicando.setBorder(borda);
+		textFieldMultiplicando.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				textFieldMultiplicando.transferFocus();
+				
+			}
+		});
 
 		// minimo multiplicador
 		JLabel labelMinMulti = new JLabel();
@@ -94,6 +103,14 @@ public class FrameTabuada {
 		JTextField textFieldMinMulti = new JtextFieldSomenteNumeros();
 		textFieldMinMulti.setBounds(250, 145, 180, 30);
 		textFieldMinMulti.setBorder(borda);
+		textFieldMinMulti.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				textFieldMinMulti.transferFocus();
+				
+			}
+		});
 
 		// máximo multiplicador
 		JLabel labelMaxMulti = new JLabel();
@@ -105,6 +122,14 @@ public class FrameTabuada {
 		JTextField textFieldMaxMulti = new JtextFieldSomenteNumeros();
 		textFieldMaxMulti.setBounds(250, 195, 180, 30);
 		textFieldMaxMulti.setBorder(borda);
+		textFieldMaxMulti.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				textFieldMaxMulti.transferFocus();
+				
+			}
+		});
 
 		// botao calcular
 		JButton buttonCalcular = new JButton();
