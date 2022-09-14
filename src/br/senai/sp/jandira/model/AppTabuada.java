@@ -19,7 +19,7 @@ public class AppTabuada {
 		tela.corDois = new Color(255, 165, 0);
 		tela.fonteDoTitulo = new Font("Arial", Font.BOLD, 20);
 		tela.fonteDoSubTitulo = new Font("Arial", Font.BOLD, 15);
-		tela.corLetras = new Color(0);
+		tela.corLetras = new Color(0, 0, 0);
 		tela.corBasica = new Color (128, 128, 128);
 		tela.borda = new LineBorder(Color.BLUE);
 		tela.corfundao = new Color(255, 242, 204);

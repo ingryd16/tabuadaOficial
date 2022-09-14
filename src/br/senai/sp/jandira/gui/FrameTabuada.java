@@ -86,6 +86,7 @@ public class FrameTabuada {
 		textFieldMultiplicando.setBounds(250, 95, 180, 30);
 		textFieldMultiplicando.setBorder(borda);
 		textFieldMultiplicando.setForeground(corletra1);
+		textFieldMultiplicando.setFont(fonteDoSubTitulo);
 		textFieldMultiplicando.addActionListener(new ActionListener() {
 			
 			@Override
@@ -106,6 +107,7 @@ public class FrameTabuada {
 		textFieldMinMulti.setBounds(250, 145, 180, 30);
 		textFieldMinMulti.setBorder(borda);
 		textFieldMinMulti.setForeground(corletra1);
+		textFieldMinMulti.setFont(fonteDoSubTitulo);
 		textFieldMinMulti.addActionListener(new ActionListener() {
 			
 			@Override
@@ -126,6 +128,7 @@ public class FrameTabuada {
 		textFieldMaxMulti.setBounds(250, 195, 180, 30);
 		textFieldMaxMulti.setBorder(borda);
 		textFieldMaxMulti.setForeground(corletra1);
+		textFieldMaxMulti.setFont(fonteDoSubTitulo);
 		textFieldMaxMulti.addActionListener(new ActionListener() {
 			
 			@Override
@@ -142,6 +145,7 @@ public class FrameTabuada {
 		buttonCalcular.setForeground(corDoTextoDoBotao);
 		buttonCalcular.setBackground(corDoBotao);
 		buttonCalcular.setBorder(borda);
+		buttonCalcular.setFont(fonteDoSubTitulo);
 
 		// botao limpar
 		JButton buttonLimpar = new JButton();
@@ -150,6 +154,7 @@ public class FrameTabuada {
 		buttonLimpar.setForeground(corDoTextoDoBotao);
 		buttonLimpar.setBackground(corDois);
 		buttonLimpar.setBorder(borda);
+		buttonLimpar.setFont(fonteDoSubTitulo);
 
 		// resultado
 		JLabel labelResultado = new JLabel();
@@ -165,6 +170,7 @@ public class FrameTabuada {
 		scroll.setBorder(borda);
 		lista.setBackground(corfundao);
 		lista.setForeground(corletra2);
+		lista.setFont(fonteDoSubTitulo);
 
 		
 		// eventos
